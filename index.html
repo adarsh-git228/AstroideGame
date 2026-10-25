@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>8-Bit Asteroids</title>
+    <!-- Link to the separate CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game-container">
+    <div class="scanlines"></div>
+    
+    <div id="ui-layer">
+        <div>SCORE: <span id="score">0</span></div>
+        <div style="margin-top: 10px;">LIVES: <span id="lives">3</span></div>
+        <div style="margin-top: 10px; font-size: 10px; color: #aaa;">LEVEL: <span id="level">1</span></div>
+    </div>
+
+    <div id="start-screen">
+        <h1>NEON ASTEROIDS</h1>
+        <p>DESTROY THE SQUARES.</p>
+        <p>AVOID COLLISIONS.</p>
+        <br>
+        <p>[ARROWS] to Move & Rotate</p>
+        <p>[SPACE] to Shoot</p>
+        <div class="blink" id="start-btn">CLICK TO START</div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Touch Controls for Mobile -->
+    <div id="mobile-controls">
+        <div class="control-group left-controls">
+            <div class="btn" id="btn-left">◀</div>
+            <div class="btn" id="btn-right">▶</div>
+        </div>
+        <div class="control-group right-controls">
+            <div class="btn" id="btn-shoot">●</div>
+            <div class="btn" id="btn-thrust">▲</div>
+        </div>
+    </div>
+</div>
+
+<!-- Link to the separate JS file -->
+<script src="script.js"></script>
+</body>
+</html>

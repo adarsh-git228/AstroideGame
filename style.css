@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    color: #00ff00;
+    font-family: 'Press Start 2P', monospace;
+    overflow: hidden; /* Prevent scrolling */
+    touch-action: none; /* Prevent browser gestures */
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    border: 2px solid #004400;
+    background-color: #000;
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Mobile Controls */
+#mobile-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: none; /* Hidden on desktop by default */
+    pointer-events: none; /* Let clicks pass through empty areas */
+    z-index: 20;
+}
+
+.control-group {
+    position: absolute;
+    bottom: 10px;
+    pointer-events: auto;
+}
+
+.left-controls { left: 20px; }
+.right-controls { right: 20px; }
+
+.btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    border-radius: 50%;
+    color: rgba(0, 255, 0, 0.8);
+    font-size: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn:active {
+    background: rgba(0, 255, 0, 0.4);
+}
+
+#ui-layer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 15;
+    pointer-events: none;
+    text-shadow: 2px 2px #003300;
+}
+
+#start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border: 2px solid #00ff00;
+}
+
+h1 { font-size: 24px; margin-bottom: 20px; color: #fff; text-shadow: 2px 2px #00ff00; }
+p { font-size: 12px; line-height: 1.5; color: #aaa; }
+.blink { animation: blinker 1s linear infinite; color: #00ff00; margin-top: 20px; cursor: pointer;}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    #mobile-controls { display: block; }
+    h1 { font-size: 18px; }
+    #start-screen { width: 80%; padding: 20px; }
+}
